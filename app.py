@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-	# emo = emotions.detect_emotion()
+	
 	# cap = cv2.VideoCapture(0)
 
-	detect_emotion()
+	# emo = detect_emotion(cap)
 
 	# cap.release()
 	# cv2.destroyAllWindows()

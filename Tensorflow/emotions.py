@@ -193,5 +193,5 @@ def detect_emotion():
     cv2.destroyAllWindows()
     return emotion_dict[maxindex]
 
-# detect_emotion()
+detect_emotion()
 

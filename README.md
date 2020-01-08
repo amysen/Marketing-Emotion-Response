@@ -1,8 +1,9 @@
-# Emotion-detection
+# Marketing-Emotion-Response
 
 ## Introduction
 
-This project aims to classify the emotion on a person's face into one of **seven categories**, using deep convolutional neural networks. This repository is an implementation of [this](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) research paper. The model is trained on the **FER-2013** dataset which was published on International Conference on Machine Learning (ICML). This dataset consists of 35887 grayscale, 48x48 sized face images with **seven emotions** - angry, disgusted, fearful, happy, neutral, sad and surprised.
+This project aims to classify the emotion/reaction on a person's face when viewing adertising media into one of **seven categories**, using deep convolutional neural networks. 
+Building from the implementation by [atulapra](https://github.com/atulapra/Emotion-detection) which is based on [this](https://github.com/atulapra/Emotion-detection/blob/master/ResearchPaper.pdf) research paper, the model is trained on the **FER-2013** dataset which was published on International Conference on Machine Learning (ICML). This dataset consists of 35887 grayscale, 48x48 sized face images with **seven emotions** - angry, disgusted, fearful, happy, neutral, sad and surprised.
 
 ## Dependencies
 
@@ -13,13 +14,11 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 The repository is currently compatible with `tensorflow-2.0` and makes use of the Keras API using the `tensorflow.keras` library.
 
-* First, clone the repository with `git clone https://github.com/atulapra/Emotion-detection.git` and enter the cloned folder: `cd Emotion-detection`.
-
 * Download the FER-2013 dataset from [here](https://drive.google.com/file/d/1X60B-uR3NtqPd4oosdotpbDgy8KOfUdr/view?usp=sharing) and unzip it inside the `Tensorflow` folder. This will create the folder `data`.
 
-* If you want to train this model or train after making changes to the model, use `python emotions.py --mode train`.
+* To train this model or train after making changes to the model, use `python emotions.py --mode train`.
 
-* If you want to view the predictions without training again, you can download my pre-trained model `(model.h5)` from [here](https://drive.google.com/file/d/1FUn0XNOzf-nQV7QjbBPA6-8GLoHNNgv-/view?usp=sharing) and then run `python emotions.py --mode display`.
+* Download pre-trained model `(model.h5)` from [here](https://drive.google.com/file/d/1FUn0XNOzf-nQV7QjbBPA6-8GLoHNNgv-/view?usp=sharing) and then run `python emotions.py --mode display`.
 
 * The folder structure is of the form:  
   Tensorflow:
