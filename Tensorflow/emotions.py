@@ -18,30 +18,6 @@ ap.add_argument("--mode",help="train/display")
 a = ap.parse_args()
 mode = a.mode 
 
-# def plot_model_history(model_history):
-#     """
-#     Plot Accuracy and Loss curves given the model_history
-#     """
-#     fig, axs = plt.subplots(1,2,figsize=(15,5))
-#     # summarize history for accuracy
-#     axs[0].plot(range(1,len(model_history.history['acc'])+1),model_history.history['acc'])
-#     axs[0].plot(range(1,len(model_history.history['val_acc'])+1),model_history.history['val_acc'])
-#     axs[0].set_title('Model Accuracy')
-#     axs[0].set_ylabel('Accuracy')
-#     axs[0].set_xlabel('Epoch')
-#     axs[0].set_xticks(np.arange(1,len(model_history.history['acc'])+1),len(model_history.history['acc'])/10)
-#     axs[0].legend(['train', 'val'], loc='best')
-#     # summarize history for loss
-#     axs[1].plot(range(1,len(model_history.history['loss'])+1),model_history.history['loss'])
-#     axs[1].plot(range(1,len(model_history.history['val_loss'])+1),model_history.history['val_loss'])
-#     axs[1].set_title('Model Loss')
-#     axs[1].set_ylabel('Loss')
-#     axs[1].set_xlabel('Epoch')
-#     axs[1].set_xticks(np.arange(1,len(model_history.history['loss'])+1),len(model_history.history['loss'])/10)
-#     axs[1].legend(['train', 'val'], loc='best')
-#     fig.savefig('plot.png')
-#     plt.show()
-
 # Define data generators
 train_dir = 'data/train'
 val_dir = 'data/test'
@@ -101,6 +77,7 @@ model.add(Dense(7, activation='softmax'))
 #     plot_model_history(model_info)
 #     model.save_weights('model.h5')
 
+
 def detect_emotion():
     model.load_weights('model.h5')
 
@@ -134,11 +111,8 @@ def detect_emotion():
             cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray, (48, 48)), -1), 0)
             prediction = model.predict(cropped_img)
             maxindex = int(np.argmax(prediction))
-
             print(emotion_dict[maxindex])
-            # cv2.putText(frame, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
-        # cv2.imshow('Video', cv2.resize(frame,(1600,960),interpolation = cv2.INTER_CUBIC))
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
