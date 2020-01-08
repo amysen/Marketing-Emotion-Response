@@ -1,0 +1,5 @@
+data/
+Tensorflow/data/
+*.pyc
+.DS_STORE
+venv/
