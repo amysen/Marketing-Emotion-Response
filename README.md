@@ -31,8 +31,6 @@ The repository is currently compatible with `tensorflow-2.0` and makes use of th
 
 * With a simple 4-layer CNN, the test accuracy peaked at around 50 epochs at an accuracy of 63.2%.
 
-![Accuracy plot](accuracy.png)
-
 ## Algorithm
 
 * First, we use **haar cascade** to detect faces in each frame of the webcam feed.
@@ -43,14 +41,3 @@ The repository is currently compatible with `tensorflow-2.0` and makes use of th
 
 * The emotion with maximum score is displayed on the screen.
 
-## Example Output
-
-![Mutiface](multiface.png)
-
-## References
-
-* "Challenges in Representation Learning: A report on three machine learning contests." I Goodfellow, D Erhan, PL Carrier, A Courville, M Mirza, B
-   Hamner, W Cukierski, Y Tang, DH Lee, Y Zhou, C Ramaiah, F Feng, R Li,  
-   X Wang, D Athanasakis, J Shawe-Taylor, M Milakov, J Park, R Ionescu,
-   M Popescu, C Grozea, J Bergstra, J Xie, L Romaszko, B Xu, Z Chuang, and
-   Y. Bengio. arXiv 2013.
