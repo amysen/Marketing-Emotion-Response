@@ -9,6 +9,7 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.layers import MaxPooling2D
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
+import csv
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -93,6 +94,7 @@ def detect_emotion():
     start = time.time()
     time.clock()    
     elapsed = 0
+    imageNum = 1
 
     while elapsed < 3:
         elapsed = time.time() - start
@@ -118,6 +120,13 @@ def detect_emotion():
 
     cap.release()
     cv2.destroyAllWindows()
+
+    csvRow = [imageNum, emotion_dict[maxindex]]
+    csvfile = "data.csv"
+    with open(csvfile, "a") as fp:
+        wr = csv.writer(fp, dialect='excel')
+        wr.writerow(csvRow)
+
     return emotion_dict[maxindex]
 
 detect_emotion()
