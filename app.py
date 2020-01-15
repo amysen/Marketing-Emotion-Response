@@ -17,5 +17,12 @@ def main():
 
 	return render_template('index.html', title='Home')
 
+
+@app.route('/advert_01')
+def ad_01():
+
+	return "images/drac.jpg"
+
+
 if __name__ == '__main__':
 	app.run(debug=True)
