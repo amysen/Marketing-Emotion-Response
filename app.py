@@ -23,6 +23,11 @@ def ad_01():
 
 	return "images/drac.jpg"
 
+@app.route('/advert_02')
+def ad_02():
+
+	return "images/McD.jpg"
+
 
 if __name__ == '__main__':
 	app.run(debug=True)

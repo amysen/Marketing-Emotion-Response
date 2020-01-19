@@ -1,8 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     
+
   </head>
    <body>
+   	{% block body %}
 
 		<h1> Advertisement Response Analysis </h1>
 
@@ -12,11 +15,13 @@
 
 		<!-- 'images/drac.jpg' -->
 
-		<input type="submit" id="next_img_btn" name="next_button" value="Start">
+		<button type="button" id="next_img_btn">Start</button>
 		
-	</body>
+	{% endblock %}
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/main.js') }}"></script>
+
+	</body>
 
 </html>
