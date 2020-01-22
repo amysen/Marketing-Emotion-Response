@@ -1,16 +1,25 @@
 
 $(document).ready(function() {
-	console.log("clicked0");
-
+	var clicks = 0;
 	$('#next_img_btn').click(function(){
+		clicks += 1;
 		$("#next_img_btn").html('Next');
-		console.log("clicked1");
-
+		
 		$.ajax({
 			url: "/",
 			type: "GET",
 			success: function(response) {
-				$('#ad-img').attr('src', '/static/images/drac.jpg');
+				switch (clicks) {
+				case 1:
+					$('#ad').attr('src', 'static/images/drac.jpg');
+					break;
+				case 2:
+					$('#ad').attr('src', 'static/images/McD.jpg');
+					break;
+				default:
+					$('#ad').attr('src', 'static/images/pollution.jpg');
+
+			}
 				// $("#ad-img").attr('src', '/static/' + response);
 				console.log("clicked2");
 			},
