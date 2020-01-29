@@ -20,13 +20,26 @@ $(document).ready(function() {
 					$('#ad').attr('src', 'static/images/pollution.jpg');
 
 			}
-				// $("#ad-img").attr('src', '/static/' + response);
-				console.log("clicked2");
+
+			setTimeout(function (){
+
+			  // Actions to be delayed.
+			  $.getJSON('/advert',
+					function(data) {
+						//do nothing
+						console.log("advert response detection");
+				});
+
+			}, 500);
+
+			
+
 			},
 			error: function(xhr) {
 			//Do Something to handle error
 			}
 		});
+
 	});
 	
 });

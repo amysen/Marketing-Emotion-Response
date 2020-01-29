@@ -11,6 +11,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
 import csv
 
+# print(os.getcwd())
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # command line argument
@@ -79,8 +81,8 @@ model.add(Dense(7, activation='softmax'))
 #     model.save_weights('model.h5')
 
 
-def detect_emotion():
-    model.load_weights('model.h5')
+def detect_emotion(imageNum):
+    model.load_weights('Tensorflow/model.h5')
 
     # prevents openCL usage and unnecessary logging messages
     cv2.ocl.setUseOpenCL(False)
@@ -94,7 +96,7 @@ def detect_emotion():
     start = time.time()
     time.clock()    
     elapsed = 0
-    imageNum = 1
+    
 
     while elapsed < 3:
         elapsed = time.time() - start
@@ -103,10 +105,9 @@ def detect_emotion():
         ret, frame = cap.read()
         if not ret:
             break
-        facecasc = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+        facecasc = cv2.CascadeClassifier('Tensorflow/haarcascade_frontalface_default.xml')
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = facecasc.detectMultiScale(gray,scaleFactor=1.3, minNeighbors=5)
-
         for (x, y, w, h) in faces:
             cv2.rectangle(frame, (x, y-50), (x+w, y+h+10), (255, 0, 0), 2)
             roi_gray = gray[y:y + h, x:x + w]
@@ -122,12 +123,12 @@ def detect_emotion():
     cv2.destroyAllWindows()
 
     csvRow = [imageNum, emotion_dict[maxindex]]
-    csvfile = "data.csv"
+    csvfile = "Tensorflow/data.csv"
     with open(csvfile, "a") as fp:
         wr = csv.writer(fp, dialect='excel')
         wr.writerow(csvRow)
 
     return emotion_dict[maxindex]
 
-detect_emotion()
+# detect_emotion()
 
